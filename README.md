@@ -120,12 +120,10 @@ dnf groupinstall -y "Development Tools"
 ## 📁 Structure du projet
 
 ```
-rocky-lab/
+rocky_linux/
 ├── docker-compose.yml   # Configuration Docker
 ├── .env                 # Mot de passe VNC (ne pas commiter)
-├── .gitignore           # Exclut .env et shared/
 ├── shared/              # Dossier partagé hôte ↔ conteneur
-└── README.md
 ```
 
 ---
@@ -170,12 +168,6 @@ cd /path/to/rocky-lab
 ```bash
 # Edit the .env file
 VNC_PW=Changeme!   # ← replace with your password
-```
-
-### 4. Create the shared folder
-
-```bash
-mkdir -p shared
 ```
 
 ---
@@ -257,12 +249,10 @@ dnf groupinstall -y "Development Tools"
 ## 📁 Project structure
 
 ```
-rocky-lab/
+rocky_linux/
 ├── docker-compose.yml   # Docker configuration
 ├── .env                 # VNC password (do not commit)
-├── .gitignore           # Excludes .env and shared/
 ├── shared/              # Shared folder host ↔ container
-└── README.md
 ```
 
 ---
