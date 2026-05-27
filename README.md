@@ -43,14 +43,6 @@ cd /chemin/vers/rocky-lab
 VNC_PW=Changeme!   # ← remplacer par ton mot de passe
 ```
 
-### 4. Créer le dossier partagé
-
-```bash
-mkdir -p shared
-```
-
----
-
 ## ▶️ Lancer le conteneur
 
 ```bash
