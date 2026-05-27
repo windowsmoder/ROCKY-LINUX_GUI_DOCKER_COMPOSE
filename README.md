@@ -42,6 +42,11 @@ cd /chemin/vers/rocky-lab
 # Éditer le fichier .env
 VNC_PW=Changeme!   # ← remplacer par ton mot de passe
 ```
+### 4. Créer le dossier partagé
+
+```bash
+mkdir -p shared
+```
 
 ## ▶️ Lancer le conteneur
 
@@ -168,6 +173,11 @@ cd /path/to/rocky-lab
 ```bash
 # Edit the .env file
 VNC_PW=Changeme!   # ← replace with your password
+```
+### 4. Create the shared folder
+
+```bash
+mkdir -p shared
 ```
 
 ---
