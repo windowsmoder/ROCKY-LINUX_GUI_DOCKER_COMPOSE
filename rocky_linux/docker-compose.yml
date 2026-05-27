@@ -1,0 +1,45 @@
+---
+# ============================================================
+#  Rocky Linux 9 – GUI via KasmVNC (clipboard natif)
+#  Accès : https://localhost:6901
+#  Login : kasm_user / (valeur de VNC_PW dans .env)
+#
+#  Copier-coller :
+#    - Chrome/Edge : seamless, ça marche directement
+#    - Firefox     : icône presse-papier en haut à gauche de l'interface
+# ============================================================
+
+services:
+
+  rocky:
+    image: kasmweb/rockylinux-9-desktop:1.18.0
+    container_name: rocky-linux
+    hostname: rocky-lab
+    restart: unless-stopped
+    shm_size: 512m                  # requis par KasmVNC
+    networks:
+      - rocky-net
+    ports:
+      - "6901:6901"                 # https://localhost:6901
+    environment:
+      - VNC_PW=${VNC_PW:-Changeme!}
+      # Résolution du bureau (modifiable)
+      - VNC_RESOLUTION=1280x768
+      # Langue / clavier
+      - LANG=fr_FR.UTF-8
+    volumes:
+      - rocky-home:/home/kasm-user  # persistance du home utilisateur
+      - ./shared:/shared            # dossier partagé hôte ↔ conteneur
+
+# ── Volumes ──────────────────────────────────────────────────────────────────
+volumes:
+  rocky-home:
+    driver: local
+
+# ── Réseau ───────────────────────────────────────────────────────────────────
+networks:
+  rocky-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24
